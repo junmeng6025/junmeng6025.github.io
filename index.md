@@ -1,5 +1,9 @@
 ## Jun Meng
 
+Helllo! I am currently studying for Automotive Engineering M.Sc. at School of Engineering and Design, Technical University of Munich.
+
+
+
 You can use the [editor on GitHub](https://github.com/junmeng6025/junmeng6025.github.io/edit/main/index.md) to maintain and preview the content for your website in Markdown files.
 
 Whenever you commit to this repository, GitHub Pages will run [Jekyll](https://jekyllrb.com/) to rebuild the pages in your site, from the content in your Markdown files.
