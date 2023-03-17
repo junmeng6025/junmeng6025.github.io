@@ -106,7 +106,7 @@
                 <!-- pic -->
                 <td style="padding:20px;width:40%;vertical-align:top">
                   <div class="one">
-                    <div class="two" id="ros2yolo_image" style="opacity: 0;">
+                    <div class="two" id="ros2yolo_image" style="opacity: 0;z-index: 10;">
                       <img src='images/kitti_ros2_rviz2.png' width="800">
                     </div>
                     <img src='images/kitti_ros2_rviz2.png' width="260">
@@ -132,7 +132,10 @@
                   
                   <br>
                   <p></p>
-                  <p>Introduce to project.</p>
+                  <p>
+                    Implement YOLOv5 for object detection and SGBM for depth estimation with ROS2. 
+                    Take the 3D BBox from KITTI tracking data to calculate the ground truth distances.
+                  </p>
                   <a href="https://github.com/junmeng6025/ros2_kitti">Code</a>/ 
                   <a href="pdf/Semesterarbeit_JunMeng.pdf">Thesis</a>
                 </td>
@@ -169,7 +172,9 @@
                   
                   <br>
                   <p></p>
-                  <p>Introduce to project.</p>
+                  <p>
+                    Visualize 3d BBox in .obj file format in Rviz using ROS.
+                  </p>
                   <a href="https://github.com/junmeng6025/ros_obj3d">Code</a>
                 </td>
               </tr>
@@ -205,7 +210,11 @@
                   
                   <br>
                   <p></p>
-                  <p>Introduce to project.</p>
+                  <p>
+                    Video stream from an external BASLER camera via pylance SDK.
+                    Detect the AprilTags both in the surroundings and on the drone to correct the UAV's pose, with the
+                    purpose to mount another AprilTag to the supposed position on the building.
+                  </p>
                   <a href="https://github.com/junmeng6025/apriltags-cpp">Code</a>
                 </td>
               </tr>
@@ -241,7 +250,8 @@
                   
                   <br>
                   <p></p>
-                  <p>Introduce to project.</p>
+                  <p>Practice implementation of YOLOv5 in ROS2 pipeline.
+                    Video stream from an external SONY a7r4 camera, which was converted to a webcam using specific SDK.</p>
                   <a href="https://github.com/junmeng6025/ros_obj3d/blob/main/figs/obj_3d.png">Code</a>
                 </td>
               </tr>
