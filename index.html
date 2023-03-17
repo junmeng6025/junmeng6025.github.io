@@ -1,29 +1,36 @@
 <!DOCTYPE HTML>
-<html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<html lang="en">
+
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 
   <title>Jun Meng</title>
-  
+
   <meta name="author" content="Jon Barron">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  
+
   <link rel="stylesheet" type="text/css" href="stylesheet.css">
-	<link rel="icon" type="image/png" href="images/head.png">
+  <link rel="icon" type="image/png" href="images/head.png">
   <script type="text/javascript" src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
+  <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
 </head>
 
 <body>
-  <table style="width:100%;max-width:800px;border:0px;border-spacing:0px;border-collapse:separate;margin-right:auto;margin-left:auto;">
+  <table
+    style="width:100%;max-width:800px;border:0px;border-spacing:0px;border-collapse:separate;margin-right:auto;margin-left:auto;">
     <tbody>
       <tr style="padding:0px">
         <td style="padding:0px">
           <!-- About Me Block -->
-          <table style="width:100%;border:0px;border-spacing:0px;border-collapse:separate;margin-right:auto;margin-left:auto;">
+          <table
+            style="width:100%;border:0px;border-spacing:0px;border-collapse:separate;margin-right:auto;margin-left:auto;">
             <tbody>
               <tr style="padding:0px">
                 <!-- head-pic -->
                 <td style="padding:2.5%;width:30%;max-width:30%">
                   <a href="images/head.png">
-                    <img style="width:100%;max-width:100%" alt="profile photo" src="images/head.png" class="hoverZoomLink">
+                    <img style="width:100%;max-width:100%" alt="profile photo" src="images/head.png"
+                      class="hoverZoomLink">
                   </a>
                 </td>
 
@@ -34,16 +41,16 @@
                   </p>
 
                   <p>
-                    I am a master student at 
-                    <a herf="https://www.ed.tum.de/en/ed/home-1/">School of Engineering and Design</a>, 
+                    I am a master student at
+                    <a herf="https://www.ed.tum.de/en/ed/home-1/">School of Engineering and Design</a>,
                     <a herf="https://www.tum.de/en/">Technical University of Munich</a>.
-                    I major in Automotive Engineering and Mechatronics & Robotics, 
+                    I major in Automotive Engineering and Mechatronics & Robotics,
                     focus on Advanced Driver Assistance System (ADAS) as well as Autonomous Driving.
-                    
+
                   </p>
 
                   <p>
-                    Currently I'm doing an internship at 
+                    Currently I'm doing an internship at
                     <a herf="https://www.porscheengineering.com/peg/de/">Porsche Engineering®</a>,
                     where I work on C++ development of ADAS.
                   </p>
@@ -59,15 +66,21 @@
           </table>
 
           <!-- Project -->
-          <table style="width:100%;border:0px;border-spacing:0px;border-collapse:separate;margin-right:auto;margin-left:auto;">
+          <table
+            style="width:100%;border:0px;border-spacing:0px;border-collapse:separate;margin-right:auto;margin-left:auto;">
             <tbody>
               <tr>
                 <td style="padding:20px;width:100%;vertical-align:middle">
                   <heading>Projects & Practical Experiences</heading>
                   <p>
-                    I have pretty much experience on software development with ROS and ROS2. 
-                    I'm interested in computer vision, such as 2D and 3D object detection, stereo depth estimation, 3D reconstruction, 
-                    as well as <a href="https://april.eecs.umich.edu/software/apriltag#:~:text=AprilTag%20is%20a%20visual%20fiducial,%2C%20robotics%2C%20and%20camera%20calibration.">AprilTag</a>
+                    I have pretty much experience on software development with ROS and ROS2.
+                    I'm interested in computer vision, such as 2D and 3D object detection, stereo depth estimation, 3D
+                    reconstruction,
+                    as well as
+                    <a
+                      href="https://april.eecs.umich.edu/software/apriltag#:~:text=AprilTag%20is%20a%20visual%20fiducial,%2C%20robotics%2C%20and%20camera%20calibration.">
+                      AprilTag
+                    </a>
                     detection in AR area.
                   </p>
                 </td>
@@ -75,183 +88,76 @@
             </tbody>
           </table>
 
-          <!-- Project Gallery -->
-          <table style="width:100%;border:0px;border-spacing:0px;border-collapse:separate;margin-right:auto;margin-left:auto;">
-            <tbody>
-              <!-- Project1 -->
-              <tr onmouseout="ros2yolo_stop()" onmouseover="ros2yolo_start()">
-                <!-- video -->
-                <!-- <td style="padding:20px;width:25%;vertical-align:middle">
-                  <div class="one">
-                    <div class="two" id='ros2yolo_image'>
-                      <video  width=100% height=100% muted autoplay loop>
-                        <source src="images/nerf_supervision.mp4" type="video/mp4">
-                        Your browser does not support the video tag.
-                      </video>
-                    </div>
-                    <img src='images/nerf_supervision.jpg' width="160">
-                  </div>
-                  <script type="text/javascript">
-                    function ros2yolo_start() {
-                      document.getElementById('nerfsuper_image').style.opacity = "1";
-                    }
+          <!-- Project gallery -->
+          <div class="project-gallery">
+            <div class="project">
+              <div class="project-image">
+                <div>
+                  <img class="big" src="images/apriltag-img.png" />
+                </div>
+                <div class="small" style="background-image: url('images/kitti_ros2_rviz2.png')">
+                </div>
+              </div>
+              <div class="project-description">
+                <papertitle>Semester thesis: Title</papertitle>
+                <br>
+                <p></p>
+                <p>Introduce to project.</p>
+                <a href="https://github.com/junmeng6025/ros2_kitti">Code</a>/
+                <a href="pdf/Semesterarbeit_JunMeng.pdf">Thesis</a>
+              </div>
+            </div>
 
-                    function ros2yolo_stop() {
-                      document.getElementById('nerfsuper_image').style.opacity = "0";
-                    }
-                    ros2yolo_stop()
-                  </script>
-                </td> -->
+            <div class="project">
+              <div class="project-image">
+                <div class="small" style="background-image: url('images/obj_3d.png')">
+                </div>
+              </div>
+              <div class="project-description">
+                <papertitle>3D .obj BBox visualization with Rviz</papertitle>
 
-                <!-- pic -->
-                <td style="padding:20px;width:40%;vertical-align:top">
-                  <div class="one">
-                    <div class="two" id="ros2yolo_image" style="opacity: 0;">
-                      <img src='images/kitti_ros2_rviz2.png' width="800">
-                    </div>
-                    <img src='images/kitti_ros2_rviz2.png' width="260">
-                  </div>
-                  <!-- control dispaly accroding to mouse activity -->
-                  <script type="text/javascript">
-                    function ros2yolo_start() {
-                      // mouse hover: play video
-                      document.getElementById('ros2yolo_image').style.opacity = "1"; 
-                    }
+                <br>
+                <p></p>
+                <p>Introduce to project.</p>
+                <a href="https://github.com/junmeng6025/ros_obj3d">Code</a>
+              </div>
+            </div>
 
-                    function ros2yolo_stop() {
-                      // mouse away: show image
-                      document.getElementById('ros2yolo_image').style.opacity = "0";
-                    }
-                    ros2yolo_stop()
-                  </script>
-                </td>
-                <!-- article -->
-                <td style="padding:10px;width:60%;vertical-align:top">
-                  
-                  <papertitle>Semester thesis: Title</papertitle>
-                  
-                  <br>
-                  <p></p>
-                  <p>Introduce to project.</p>
-                  <a href="https://github.com/junmeng6025/ros2_kitti">Code</a>/ 
-                  <a href="pdf/Semesterarbeit_JunMeng.pdf">Thesis</a>
-                </td>
-              </tr>
+            <div class="project">
+              <div class="project-image">
 
-              <!-- Project2 -->
-              <tr onmouseout="rosobj3d_stop()" onmouseover="rosobj3d_start()">
-                <!-- pic -->
-                <td style="padding:20px;width:40%;vertical-align:top">
-                  <div class="one">
-                    <div class="two" id="rosobj3d_image" style="opacity: 0;">
-                      <img src="images/obj_3d.png" width="800">
-                    </div>
-                    <img src="images/obj_3d.png" width="260">
-                  </div>
-                  <!-- control dispaly accroding to mouse activity -->
-                  <script type="text/javascript">
-                    function rosobj3d_start() {
-                      // mouse on: play video
-                      document.getElementById('rosobj3d_image').style.opacity = "1"; 
-                    }
+                <div class="small" style="background-image: url('images/apriltag-img.png')">
+                </div>
+              </div>
+              <div class="project-description">
+                <papertitle>AprilTag detection of video stream from external camera</papertitle>
 
-                    function rosobj3d_stop() {
-                      // mouse away: show image
-                      document.getElementById('rosobj3d_image').style.opacity = "0";
-                    }
-                    rosobj3d_stop()
-                  </script>
-                </td>
-                <!-- article -->
-                <td style="padding:10px;width:60%;vertical-align:top">
-                  
-                  <papertitle>3D .obj BBox visualization with Rviz</papertitle>
-                  
-                  <br>
-                  <p></p>
-                  <p>Introduce to project.</p>
-                  <a href="https://github.com/junmeng6025/ros_obj3d">Code</a>
-                </td>
-              </tr>
+                <br>
+                <p></p>
+                <p>Introduce to project.</p>
+                <a href="https://github.com/junmeng6025/apriltags-cpp">Code</a>
+              </div>
+            </div>
 
-              <!-- Project3 -->
-              <tr onmouseout="apriltag_stop()" onmouseover="apriltag_start()">
-                <!-- pic -->
-                <td style="padding:20px;width:40%;vertical-align:top">
-                  <div class="one">
-                    <div class="two" id="apriltag_image" style="opacity: 0;">
-                      <img src="images/apriltag-img.png" width="800">
-                    </div>
-                    <img src="images/apriltag-img.png" width="260">
-                  </div>
-                  <!-- control dispaly accroding to mouse activity -->
-                  <script type="text/javascript">
-                    function apriltag_start() {
-                      // mouse on: play video
-                      document.getElementById('apriltag_image').style.opacity = "1"; 
-                    }
+            <div class="project">
+              <div class="project-image">
+                <div class="small" style="background-image: url('images/yolowebcam.png')">
+                </div>
+              </div>
+              <div class="project-description">
+                <papertitle>YOLOv5 detection via external camera on ROS2</papertitle>
 
-                    function apriltag_stop() {
-                      // mouse away: show image
-                      document.getElementById('apriltag_image').style.opacity = "0";
-                    }
-                    apriltag_stop()
-                  </script>
-                </td>
-                <!-- article -->
-                <td style="padding:10px;width:60%;vertical-align:top">
-                  
-                  <papertitle>AprilTag detection of video stream from external camera</papertitle>
-                  
-                  <br>
-                  <p></p>
-                  <p>Introduce to project.</p>
-                  <a href="https://github.com/junmeng6025/apriltags-cpp">Code</a>
-                </td>
-              </tr>
-
-              <!-- Project4 -->
-              <tr onmouseout="yolowebcam_stop()" onmouseover="yolowebcam_start()">
-                <!-- pic -->
-                <td style="padding:20px;width:40%;vertical-align:top">
-                  <div class="one">
-                    <div class="two" id="yolowebcam_image" style="opacity: 0;">
-                      <img src="images/yolowebcam.png" width="800">
-                    </div>
-                    <img src="images/yolowebcam.png" width="260">
-                  </div>
-                  <!-- control dispaly accroding to mouse activity -->
-                  <script type="text/javascript">
-                    function yolowebcam_start() {
-                      // mouse on: play video
-                      document.getElementById('yolowebcam_image').style.opacity = "1"; 
-                    }
-
-                    function yolowebcam_stop() {
-                      // mouse away: show image
-                      document.getElementById('yolowebcam_image').style.opacity = "0";
-                    }
-                    yolowebcam_stop()
-                  </script>
-                </td>
-                <!-- article -->
-                <td style="padding:10px;width:60%;vertical-align:top">
-                  
-                  <papertitle>YOLOv5 detection via external camera on ROS2</papertitle>
-                  
-                  <br>
-                  <p></p>
-                  <p>Introduce to project.</p>
-                  <a href="https://github.com/junmeng6025/ros_obj3d/blob/main/figs/obj_3d.png">Code</a>
-                </td>
-              </tr>
-
-
-            </tbody>
-          </table>
+                <br>
+                <p></p>
+                <p>Introduce to project.</p>
+                <a href="https://github.com/junmeng6025/ros_obj3d/blob/main/figs/obj_3d.png">Code</a>
+              </div>
+            </div>
+          </div>
 
           <!-- Education Block -->
-          <table style="width:100%;border:0px;border-spacing:0px;border-collapse:separate;margin-right:auto;margin-left:auto;">
+          <table
+            style="width:100%;border:0px;border-spacing:0px;border-collapse:separate;margin-right:auto;margin-left:auto;">
             <tbody>
               <tr>
                 <td style="padding:20px;width:100%;vertical-align:middle">
@@ -307,7 +213,8 @@
           </table>
 
           <!-- Internship Block -->
-          <table style="width:100%;border:0px;border-spacing:0px;border-collapse:separate;margin-right:auto;margin-left:auto;">
+          <table
+            style="width:100%;border:0px;border-spacing:0px;border-collapse:separate;margin-right:auto;margin-left:auto;">
             <tbody>
               <tr>
                 <td style="padding:20px;width:100%;vertical-align:middle">
@@ -408,27 +315,28 @@
             </tbody>
           </table>
 
-        
-        <!-- line break -->
-        <hr>
-        <!-- footer -->
-        <table style="width:100%;border:0px;border-spacing:0px;border-collapse:separate;margin-right:auto;margin-left:auto;">
-          <tbody>
-            <tr>
-              <td style="padding:0px">
-                <br>
-                <p style="text-align:right;font-size:small;">
-                  Updated March 2023
-                  <br>
-                  Page template from <a href="https://github.com/junmeng6025/website">Jon Barron.</a>
-                </p>
-              </td>
-            </tr>
-          </tbody>
-        </table>
 
-      </td>
-    </tr>
+          <!-- line break -->
+          <hr>
+          <!-- footer -->
+          <table
+            style="width:100%;border:0px;border-spacing:0px;border-collapse:separate;margin-right:auto;margin-left:auto;">
+            <tbody>
+              <tr>
+                <td style="padding:0px">
+                  <br>
+                  <p style="text-align:right;font-size:small;">
+                    Updated March 2023
+                    <br>
+                    Page template from <a href="https://github.com/junmeng6025/website">Jon Barron.</a>
+                  </p>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+
+        </td>
+      </tr>
   </table>
 </body>
 
