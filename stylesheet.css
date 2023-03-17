@@ -180,6 +180,9 @@ span.highlight {
   transition: opacity 500ms;
 }
 
+/* .imgHover{  transition: all 0.5s;}
+.imgHover:hover{   transform: scale(3.00);  } */
+
 @media (max-width: 586px) {
   .project {
     flex-direction: column;
