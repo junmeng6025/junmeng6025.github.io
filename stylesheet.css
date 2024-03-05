@@ -164,7 +164,8 @@ span.highlight {
   max-width: 100%;
   height: auto;
   padding: 20px;
-  image-rendering: optimizeSpeed; /* for non-webkit browsers */
+  image-rendering: optimizeSpeed;
+  /* for non-webkit browsers */
 }
 
 .project-image .small {
@@ -202,4 +203,14 @@ span.highlight {
   .project-description {
     margin: 20px;
   }
+}
+
+.icon-container {
+  text-align: center;
+}
+
+.icon-container img {
+  height: 25px;
+  width: auto;
+  padding: 5px;
 }
