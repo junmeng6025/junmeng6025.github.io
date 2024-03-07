@@ -116,6 +116,7 @@ name {
   width: 100%;
   height: auto;
   position: relative;
+  image-rendering: optimizeSpeed;
 }
 
 .two {
