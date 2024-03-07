@@ -220,6 +220,8 @@ span.highlight {
 .photo_container {
   vertical-align: middle;
   max-width: 640px;
+  margin-right: auto;
+  margin-left: auto;
 }
 
 .photo_container img {
