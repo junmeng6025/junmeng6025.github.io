@@ -84,6 +84,7 @@
             </tbody>
           </table>
 
+          <!-- BKGRD img -->
           <table
             style="width:100%;padding:10px;border:0px;border-spacing:0px;border-collapse:separate;margin-right:auto;margin-left:auto;">
             <tbody>
@@ -123,6 +124,7 @@
             </tbody>
           </table>
 
+          <!-- Skills -->
           <table
             style="width:100%;border:0px;border-spacing:0px;border-collapse:separate;margin-right:auto;margin-left:auto;">
             <tbody>
@@ -145,7 +147,7 @@
                     <img src="images/icons/pytorch.png" alt="Icon 12">
                     <img src="images/icons/stackoverflow.png" alt="Icon 17">
 
-                    <!-- <img src="images/icons/html.png" alt="Icon 13"> -->
+                    <img src="images/icons/html.png" alt="Icon 13">
                     <img src="images/icons/latex.png" alt="Icon 14">
                     <img src="images/icons/markdown.png" alt="Icon 15">
 
@@ -680,21 +682,104 @@
             </tbody>
           </table>
 
-
           <!-- line break -->
           <hr>
-          <!-- statistics -->
+
+          <!-- Photo Wall -->
           <table
-            style="width:350px;border:0px;border-spacing:0px;border-collapse:separate;margin-right:auto;margin-left:auto;">
+            style="width:100%;height:auto;border:0px;border-spacing:0px;border-collapse:separate;margin-right:auto;margin-left:auto;">
             <tbody>
               <tr>
-                <td style="padding:20px;width:100%;vertical-align:middle">
+                <td style="padding:10px;padding-top:30px;width:100%;vertical-align:middle">
+                  <heading>Photo Wall</heading>
+                </td>
+              </tr>
+            </tbody>
+          </table>
 
+          <!-- Photo stack -->
+          <table
+            style="width:80%;padding:10px;border:0px;border-spacing:0px;border-collapse:separate;margin-right:auto;margin-left:auto;">
+            <tbody>
+              <tr id="imageRow">
+                <td class="photo_container" style="position:relative;width:80%; height:auto;padding:0px">
+                  <img src="images/photo/01.jpg" alt="Image 1">
+                  <img src="images/photo/02.jpg" alt="Image 2">
+                  <img src="images/photo/03.jpg" alt="Image 3">
+                  <img src="images/photo/04.jpg" alt="Image 4">
+                  <img src="images/photo/05.jpg" alt="Image 5">
+                  <img src="images/photo/06.jpg" alt="Image 6">
+                  <img src="images/photo/07.jpg" alt="Image 7">
+                  <img src="images/photo/08.jpg" alt="Image 8">
+                  <img src="images/photo/09.jpg" alt="Image 9">
+                  <img src="images/photo/10.jpg" alt="Image 10">
+                  <img src="images/photo/11.jpg" alt="Image 11">
+                </td>
+              </tr>
+
+              <script>
+                const images = document.querySelectorAll('#imageRow img'); // 获取所有图片元素
+                let currentIndex = 0; // 当前显示图片的索引
+                images[currentIndex].style.opacity = '1';
+
+                function displayNextImage() {
+                  images[currentIndex].style.opacity = '0';
+                  currentIndex = (currentIndex + 1) % images.length; // 计算下一张图片的索引
+                  images[currentIndex].style.opacity = '1'; // 显示下一张图片
+                }
+                // 每隔一段时间切换图片
+                setInterval(displayNextImage, 2500); // 这里的2000表示每隔2秒切换一次图片，根据需要进行调整
+              </script>
+            </tbody>
+          </table>
+
+          <!-- ANOTHER TRY -->
+          <!-- <table>
+            <tr id="imageRow" class="photo_container">
+              <td>
+                <img src="images/photo/05.jpg" alt="Image 1">
+              </td>
+            </tr>
+
+            <script>
+              const images = [
+                'images/photo/05.jpg',
+                'images/photo/07.jpg',
+                'images/photo/11.jpg',
+              ]; // 图片的路径数组
+              let currentIndex = 0; // 当前显示图片的索引
+
+              function displayNextImage() {
+                currentIndex = (currentIndex + 1) % images.length; // 计算下一张图片的索引
+                const imageCell = document.querySelector('#imageRow td');
+                imageCell.style.opacity = '0'; // 淡出当前图片
+                setTimeout(() => {
+                  imageCell.innerHTML = `<img src="${images[currentIndex]}" alt="Image ${currentIndex + 1}">`; // 更新表格中的图片
+                  setTimeout(() => {
+                    imageCell.style.opacity = '1'; // 淡入新图片
+                  }, 100); // 在更新图片后稍微延迟一下，避免在同一帧内淡入淡出效果没有生效
+                }, 1000); // 延迟一秒后更新图片
+              }
+
+              // 每隔一段时间切换图片
+              setInterval(displayNextImage, 2000); // 这里的2000表示每隔2秒切换一次图片，根据需要进行调整
+            </script>
+          </table> -->
+
+          <!-- statistics -->
+          <table
+            style="width:350px;padding-top:52%;border:0px;border-spacing:0px;border-collapse:separate;margin-right:auto;margin-left:auto;">
+            <tbody>
+              <!-- <tr style="height:300px;">
+
+              </tr> -->
+              <tr>
+                <td style="padding:20px;width:100%;vertical-align:middle;">
                   <script type='text/javascript' id='clustrmaps'
                     src='//cdn.clustrmaps.com/map_v2.js?cl=ffffff&w=a&t=m&d=1KuXT48NxIBmKSXjyUzYy_YAGtPcXa_BqNnvPDG_rHc&cmn=ff5353&cmo=ff9f00'></script>
 
                   <!-- <script type="text/javascript" id="clstr_globe"
-                    src="//clustrmaps.com/globe.js?d=1KuXT48NxIBmKSXjyUzYy_YAGtPcXa_BqNnvPDG_rHc"></script> -->
+                      src="//clustrmaps.com/globe.js?d=1KuXT48NxIBmKSXjyUzYy_YAGtPcXa_BqNnvPDG_rHc"></script> -->
                 </td>
               </tr>
             </tbody>
