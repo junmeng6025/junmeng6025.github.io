@@ -232,6 +232,9 @@ span.highlight {
   transition: opacity 1s ease-in-out;
   -moz-transition: opacity 1s ease-in-out;
   -webkit-transition: opacity 1s ease-in-out;
+  border-collapse: separate;
+  margin-right: auto;
+  margin-left: auto;
 }
 
 .photo_container img.active {
@@ -242,7 +245,7 @@ span.highlight {
   opacity: 1;
   width: 100%;
   height: auto;
-  position: absolute;
+  position: relative;
   image-rendering: optimizeSpeed;
 }
 
