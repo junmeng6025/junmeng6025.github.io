@@ -698,7 +698,7 @@
           </table>
 
           <!-- Photo stack -->
-          <table
+          <!-- <table
             style="width:80%;max-width:640px;padding:10px;border:0px;border-spacing:0px;border-collapse:separate;margin-right:auto;margin-left:auto;">
             <tbody>
               <tr id="imageRow">
@@ -726,6 +726,42 @@
                   images[currentIndex].style.opacity = '0';
                   currentIndex = (currentIndex + 1) % images.length; // 计算下一张图片的索引
                   images[currentIndex].style.opacity = '1'; // 显示下一张图片
+                }
+                // 每隔一段时间切换图片
+                setInterval(displayNextImage, 2500); // 这里的2000表示每隔2秒切换一次图片，根据需要进行调整
+              </script>
+            </tbody>
+          </table> -->
+
+          <table
+            style="width:80%;max-width:640px;padding:10px;border:0px;border-spacing:0px;border-collapse:separate;margin-right:auto;margin-left:auto;">
+            <tbody>
+              <tr id="imageRow">
+                <td class="photo_container" style="position:relative;width:80%; height:auto;padding:0px">
+                  <img src="images/photo/01.jpg" alt="Image 1" class="active">
+                  <img src="images/photo/02.jpg" alt="Image 2">
+                  <img src="images/photo/03.jpg" alt="Image 3">
+                  <img src="images/photo/04.jpg" alt="Image 4">
+                  <img src="images/photo/05.jpg" alt="Image 5">
+                  <img src="images/photo/06.jpg" alt="Image 6">
+                  <img src="images/photo/07.jpg" alt="Image 7">
+                  <img src="images/photo/08.jpg" alt="Image 8">
+                  <img src="images/photo/09.jpg" alt="Image 9">
+                  <img src="images/photo/10.jpg" alt="Image 10">
+                  <img src="images/photo/11.jpg" alt="Image 11">
+                </td>
+              </tr>
+
+              <script>
+                const images = document.querySelectorAll('#imageRow img'); // 获取所有图片元素
+                let currentIndex = 0; // 当前显示图片的索引
+                // images[currentIndex].style.opacity = '1';
+
+                function displayNextImage() {
+                  images[currentIndex].classList.remove('active');
+                  // images[currentIndex].classList.add('out');
+                  currentIndex = (currentIndex + 1) % images.length; // 计算下一张图片的索引
+                  images[currentIndex].classList.add('active'); // 显示下一张图片
                 }
                 // 每隔一段时间切换图片
                 setInterval(displayNextImage, 2500); // 这里的2000表示每隔2秒切换一次图片，根据需要进行调整

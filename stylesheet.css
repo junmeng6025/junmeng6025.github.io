@@ -234,7 +234,7 @@ span.highlight {
   -webkit-transition: opacity 1s ease-in-out;
 }
 
-/* .photo_container img.active {
+.photo_container img.active {
   opacity: 1;
 }
 
@@ -242,7 +242,7 @@ span.highlight {
   opacity: 1;
   width: 100%;
   height: auto;
-  position: relative;
+  position: absolute;
   image-rendering: optimizeSpeed;
 }
 
@@ -254,7 +254,7 @@ span.highlight {
   transition: opacity .2s ease-in-out;
   -moz-transition: opacity .2s ease-in-out;
   -webkit-transition: opacity .2s ease-in-out;
-} */
+}
 
 /* Img with Text */
 /* .image-with-text {
