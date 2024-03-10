@@ -216,6 +216,57 @@ span.highlight {
   padding: 5px;
 }
 
+/* 进度条样式 */
+#progressBar {
+  width: 80%;
+  /* 进度条的宽度 */
+  height: 5px;
+  /* 进度条的高度 */
+  background-color: rgba(175, 175, 175, 0.4);
+  /* 进度条的背景色 */
+  margin-top: 10px;
+  /* 进度条与轮播图之间的间距 */
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* 当前进度的样式 */
+#progressBar .currentProgress {
+  height: 100%;
+  /* 当前进度的高度，与进度条高度一致 */
+  background-color: hsla(205, 100%, 50%, 0.58);
+  /* 当前进度的颜色 */
+}
+
+#imgDescription .txt {
+  width: 80%;
+  vertical-align: middle;
+  max-width: 640px;
+  /* 进度条的宽度 */
+  height: 20px;
+  /* 进度条的高度 */
+  /* 进度条的背景色 */
+  top: 0px;
+  /* 进度条与轮播图之间的间距 */
+  margin-left: auto;
+  margin-right: auto;
+  position: relative;
+  bottom: 0px;
+  /* 距离底部的距离，可以根据需要进行调整 */
+  color: rgba(48, 48, 48, 0.65);
+  /* 文字颜色 */
+  /* background-color: #40b9ff36; */
+  /* 背景颜色 */
+  padding: 0px;
+  /* 文字周围的内边距 */
+  border-radius: 5px;
+  /* 圆角 */
+  transition: opacity 1s ease-in-out;
+  -moz-transition: opacity 1s ease-in-out;
+  -webkit-transition: opacity 1s ease-in-out;
+}
+
+
 /* Photo gallery */
 .photo_container {
   vertical-align: middle;
