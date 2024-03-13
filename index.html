@@ -277,44 +277,46 @@
               </tr>
             </tbody>
 
-            <!-- Project ROS-obj3d -->
+            <!-- Project MoonRover -->
             <tbody>
-              <tr onmouseout="obj3d_stop()" onmouseover="obj3d_start()">
-                <!-- <tr style="padding:0px">
-                <td style="padding:20px;width:40%;vertical-align:top">
-                  <div class="one">
-                    <img src='images/jpg/obj_3d.jpg' width=100%>
-                  </div>
-                </td> -->
-
+              <tr onmouseout="mrover_stop()" onmouseover="mrover_start()">
                 <td style="padding:20px;padding-bottom:2%;width:40%;height:auto;vertical-align:top">
                   <div class="one">
-                    <div class="two" id='obj3d_image'>
-                      <img src='images/obj_3d-dark_crop.png' width=100%>
+                    <div class="two" id='mrover_image'>
+                      <img src='images/mrover-layout.png' width=100%>
                     </div>
-                    <img src='images/obj_3d_crop.png' width=100%>
+                    <img src='images/demos/mrover.gif' width=100%>
                   </div>
                   <script type="text/javascript">
-                    function obj3d_start() {
-                      document.getElementById('obj3d_image').style.opacity = "1";
+                    function mrover_start() {
+                      document.getElementById('mrover_image').style.opacity = "1";
                     }
 
-                    function obj3d_stop() {
-                      document.getElementById('obj3d_image').style.opacity = "0";
+                    function mrover_stop() {
+                      document.getElementById('mrover_image').style.opacity = "0";
                     }
-                    obj3d_stop()
+                    mrover_stop()
                   </script>
                 </td>
 
                 <td style="padding:10px;padding-bottom:2%;width:60%;vertical-align:top">
 
-                  <papertitle>Visualization of 3D Object Detection result with Rviz</papertitle>
+                  <papertitle>MoonRover: a controller dev with C++</papertitle>
 
                   <br>
                   <p></p>
-                  <p>Visualize the point cloud and 3d detection results from .obj file in ROS Noetic.</p>
+                  <p>A practical course of our
+                    <a href="https://www.mec.ed.tum.de/en/ais/institute/"> TUM AIS</a>.
+                    Practiced OOP and organized programming style of C++.
+                    The simulation in Unity Engine was provided by tutor.
+                  </p>
+                  <p>The controller consists of functions of:<br>
+                    • Teleoperate the MoonRover via keyboard input;<br>
+                    • Select maneuver mode to make the MoonRover to travel along the given O-shaped or 8-shaped
+                    trajectory.
+                  </p>
                   <i class="fa fa-github-square"></i>
-                  <a href="https://github.com/junmeng6025/ros_obj3d">GitHub</a>
+                  <a href="https://github.com/junmeng6025/pra-cpp">GitHub</a>
                   <br>
                   <br>
                 </td>
@@ -372,6 +374,86 @@
                   </p>
                   <i class="fa fa-github-square"></i>
                   <a href="https://github.com/junmeng6025/apriltags-cpp">GitHub</a>
+                  <br>
+                  <br>
+                </td>
+              </tr>
+            </tbody>
+
+            <!-- Project ROS-obj3d -->
+            <tbody>
+              <tr onmouseout="obj3d_stop()" onmouseover="obj3d_start()">
+                <td style="padding:20px;padding-bottom:2%;width:40%;height:auto;vertical-align:top">
+                  <div class="one">
+                    <div class="two" id='obj3d_image'>
+                      <img src='images/obj_3d-dark_crop.png' width=100%>
+                    </div>
+                    <img src='images/obj_3d_crop.png' width=100%>
+                  </div>
+                  <script type="text/javascript">
+                    function obj3d_start() {
+                      document.getElementById('obj3d_image').style.opacity = "1";
+                    }
+
+                    function obj3d_stop() {
+                      document.getElementById('obj3d_image').style.opacity = "0";
+                    }
+                    obj3d_stop()
+                  </script>
+                </td>
+
+                <td style="padding:10px;padding-bottom:2%;width:60%;vertical-align:top">
+
+                  <papertitle>Visualization of 3D Object Detection results with ROS Rviz</papertitle>
+
+                  <br>
+                  <p></p>
+                  <p>Visualize the point cloud and 3d detection results from .obj file via ROS Noetic.</p>
+                  <i class="fa fa-github-square"></i>
+                  <a href="https://github.com/junmeng6025/ros_obj3d">GitHub</a>
+                  <br>
+                  <br>
+                </td>
+              </tr>
+            </tbody>
+
+            <!-- Project ROS_tutorial -->
+            <tbody>
+              <tr onmouseout="rostut_stop()" onmouseover="rostut_start()">
+                <td style="padding:20px;padding-bottom:2%;width:40%;height:auto;vertical-align:top">
+                  <div class="one">
+                    <div class="two" id='rostut_image'>
+                      <img src='images/ros_galactic.jpg' width=100%>
+                    </div>
+                    <img src='images/ros_tut.png' width=100%>
+                  </div>
+                  <script type="text/javascript">
+                    function rostut_start() {
+                      document.getElementById('rostut_image').style.opacity = "1";
+                    }
+
+                    function rostut_stop() {
+                      document.getElementById('rostut_image').style.opacity = "0";
+                    }
+                    rostut_stop()
+                  </script>
+                </td>
+
+                <td style="padding:10px;padding-bottom:2%;width:60%;vertical-align:top">
+
+                  <papertitle>ROS/ROS2 Notes as beginner</papertitle>
+
+                  <br>
+                  <p></p>
+                  <p>
+                    Links to my github repos:<br>
+                    <i class="fa fa-github-square"></i>
+                    <a href="https://github.com/junmeng6025/ros_tutorial">ROS</a>
+                    <br>
+                    <i class="fa fa-github-square"></i>
+                    <a href="https://github.com/junmeng6025/ros2_guyue">ROS2</a>
+
+                  </p>
                   <br>
                   <br>
                 </td>
