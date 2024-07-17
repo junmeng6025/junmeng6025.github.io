@@ -276,7 +276,55 @@
               </tr>
             </tbody>
 
-            <!-- Project RO-labeling -->
+            <!-- Project AutobahnPilot -->
+            <tbody>
+              <tr onmouseout="ap_stop()" onmouseover="ap_start()">
+                <td style="padding:20px;padding-bottom:2%;width:40%;height:auto;vertical-align:top">
+                  <div class="one">
+                    <div class="two" id='ap_image'>
+                      <a href="images/autobahn-pilot-labeling.png" target="_blank" title="click to see labeling rules">
+                        <img src='images/autobahn-pilot-labeling.png' width=100%>
+                      </a>
+                    </div>
+                    <img src='images/demos/autobahn-pilot.gif' width=100%>
+                  </div>
+                  <script type="text/javascript">
+                    function ap_start() {
+                      document.getElementById('ap_image').style.opacity = "1";
+                    }
+
+                    function ap_stop() {
+                      document.getElementById('ap_image').style.opacity = "0";
+                    }
+                    ap_stop()
+                  </script>
+                </td>
+
+                <td style="padding:10px;padding-bottom:2%;width:60%;vertical-align:top">
+
+                  <papertitle>
+                    Collision prediction: Labeling, Training, Display
+                  </papertitle>
+
+                  <br>
+                  <p></p>
+                  <p>
+                    Build dataset, label actor vehicles as "safe" or "unsafe" upon their Frenet locations and velocities
+                    relative to ego car in every single frame. Train a classifier to infer actor vehicle's collision
+                    potential upon its history behavior.
+                  </p>
+                  <p>
+                    • Label actor vehicles as "safe"/"unsafe" upon Frenet coordicats;<br>
+                    • Use ML to learn actor vehicles' history behavior patterns;<br>
+                    • Predict and display using Matplotlib.
+                  </p>
+                  <i class="fa fa-github"></i>
+                  <a href="https://github.com/junmeng6025/ro_labeling/tree/main" target="_blank"> GitHub</a>
+                  <br>
+                  <br>
+                </td>
+              </tr>
+            </tbody>
 
             <!-- Project MoonRover -->
             <tbody>
@@ -830,6 +878,9 @@
 
           <!-- line break -->
           <hr>
+
+          <!-- Travel Map -->
+          <!-- <iframe src="map.html"></iframe> -->
 
           <!-- Photo Wall -->
           <table
