@@ -398,8 +398,8 @@ iframe {
 }
 
 .cta {
-  display: flex;
-  gap: 10px;
+  /* display: flex; */
+  gap: 10px 10px;
   align-items: center;
   justify-content: center;
   margin-bottom: 40px;
