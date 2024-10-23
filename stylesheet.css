@@ -398,7 +398,6 @@ iframe {
 }
 
 .cta {
-  /* display: flex; */
   gap: 10px 10px;
   align-items: center;
   justify-content: center;
@@ -416,7 +415,7 @@ iframe {
   font-weight: 300;
   letter-spacing: 0px;
   height: 30px;
-  width: 80px;
+  width: 90px;
   background-color: #2B3A55;
   color: white;
   border-radius: 5px;
