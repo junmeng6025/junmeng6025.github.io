@@ -398,7 +398,8 @@ iframe {
 }
 
 .cta {
-  gap: 10px 10px;
+  display: flex;
+  gap: 15px;
   align-items: center;
   justify-content: center;
   margin-bottom: 40px;
@@ -415,7 +416,7 @@ iframe {
   font-weight: 300;
   letter-spacing: 0px;
   height: 30px;
-  width: 90px;
+  width: 100px;
   background-color: #2B3A55;
   color: white;
   border-radius: 5px;
@@ -424,11 +425,11 @@ iframe {
 }
 
 .big-cta {
-  font-size: 15px;
+  font-size: 16px;
   font-weight: 600;
   letter-spacing: 0px;
   height: 40px;
-  width: 115px;
+  width: 110px;
   background-color: #2B3A55;
   color: white;
   border-radius: 5px;
