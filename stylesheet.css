@@ -458,3 +458,11 @@ iframe {
   color: white;
   border-color: #0d60b4;
 }
+
+#map {
+  vertical-align: middle;
+  height: 600px;
+  width: 60%;
+  margin: 10px auto;
+  border-radius: 10px;
+}

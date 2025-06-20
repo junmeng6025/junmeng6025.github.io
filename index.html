@@ -15,6 +15,9 @@
   <!-- <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script> -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
   <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+  <!-- 引入 Leaflet CSS -->
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+
 </head>
 
 <body>
@@ -44,11 +47,8 @@
 
                   <p class="justify">
                     Hi there &#128075;<br>
-                    <!-- I've just got my Master's degree
-                    <b>M.Sc. in Automotive Engineering</b> at
-                    <a href="https://www.tum.de/en/" target="_blank">TU Munich</a>. -->
-                    As a passionate AI/CV developer with a strong background in ADAS/AD, I'm skilled in Python, C/C++,
-                    TensorFLow, PyTorch, and various ML-related libraries.
+                    <!-- As a passionate AI/CV developer with a strong background in ADAS/AD, I'm skilled in Python, C/C++,
+                    TensorFLow, PyTorch, and various ML-related libraries. -->
 
                   </p>
 
@@ -60,10 +60,16 @@
                   </p> -->
 
                   <p class="justify">
-                    <b>#OPEN TO WORK&#128188;</b> With excellent
+                    <!-- <b>#OPEN TO WORK&#128188;</b> With excellent
                     research, problem-solving, and collaboration abilities, I'm expecting roles as
                     <b>Software Developer</b> / <b>Test Engineer</b> / <b>Simulation
-                      Engineer</b> / <b>AI Engineer</b> in the fields of AD/ADAS or general Engineering fields.
+                      Engineer</b> / <b>AI Engineer</b> in the fields of AD/ADAS or general Engineering fields. -->
+                  </p>
+                  <p class="justify">
+                    I'm working as an <b>ADAS Test Enginerer</b> at
+                    <a href="https://www.imotion.ai/?l=en-us" target="_blank">iMotion</a>,
+                    a leading autonomous driving solution provider, specializing in AD domain controller
+                    technology.
                   </p>
                   <br>
 
@@ -1072,7 +1078,128 @@
           <hr>
 
           <!-- Travel Map -->
-          <!-- <iframe src="map.html"></iframe> -->
+
+          <!-- <table
+            style="width:100%;height:auto;border:0px;border-spacing:0px;border-collapse:separate;margin-right:auto;margin-left:auto;">
+            <tbody>
+              <tr>
+                <td style="padding:10px;padding-top:30px;width:100%;vertical-align:middle">
+                  <heading>Travel map</heading>
+                </td>
+                <td style="padding:10px;padding-top:30px;width:100%;vertical-align:middle;text-align:right">
+                  <a href="https://glaze-branch-3d9.notion.site/e1de185635a14f318cfd585324cd86c1?v=5657ff8beae64f00815192e8046525c9"
+                    target="_blank">
+                    <button class="big-cta cta-2">
+                      <i class="fa fa-map"></i> 自由如风
+                    </button>
+                  </a>
+                </td>
+              </tr>
+            </tbody>
+          </table> -->
+
+          <!-- <table
+            style="width:80%;max-width:640px;padding:10px;border:0px;border-spacing:0px;border-collapse:separate;margin-right:auto;margin-left:auto;margin-bottom:auto">
+            <tbody>
+              <div id="map"></div>
+              <tr>
+                <td style="padding:20px;width:100%;vertical-align:middle;">
+                  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+                  <script>
+                    // 你去过的地方坐标列表
+                    const places = [
+                      // Norway
+                      { name: "特罗姆瑟 (Tromsø)", lat: 69.6492, lon: 18.9553 },
+                      { name: "Reine", lat: 67.9333, lon: 13.0893 },
+                      { name: "博德 (Bodø)", lat: 67.2827, lon: 14.3751 },
+                      { name: "Rognan", lat: 67.0953, lon: 15.3878 },
+                      { name: "Mo i Rana", lat: 66.3128, lon: 14.1428 },
+                      { name: "特隆赫姆 (Trondheim)", lat: 63.4305, lon: 10.3951 },
+                      { name: "奥勒松 (Ålesund)", lat: 62.4724, lon: 6.3101 },
+                      { name: "卑尔根 (Bergen)", lat: 60.3930, lon: 5.3244 },
+                      { name: "斯塔万格 (Stavanger)", lat: 58.9700, lon: 5.7330 },
+                      { name: "克里斯蒂安桑 (Kristiansand)", lat: 58.1467, lon: 7.9956 },
+                      { name: "奥斯陆 (Oslo)", lat: 59.9139, lon: 10.7522 },
+                      { name: "哥德堡 (Gothenburg)", lat: 57.7089, lon: 11.9746 },
+                      { name: "基尔 (Kiel)", lat: 54.3233, lon: 10.1228 },
+                      { name: "布伦瑞克 (Brunswick/Braunschweig)", lat: 52.2689, lon: 10.5268 },
+                      { name: "德累斯顿 (Dresden)", lat: 51.0504, lon: 13.7373 },
+                      { name: "慕尼黑 (Munich)", lat: 48.1351, lon: 11.5820 },
+                      // Spain
+                      { name: "巴塞罗那 (Barcelona)", lat: 41.390205, lon: 2.154007 },
+                      { name: "Lleida", lat: 41.617592, lon: 0.620015 },
+                      { name: "萨拉戈萨 (Zaragoza)", lat: 41.65606, lon: -0.87734 },
+                      { name: "马德里 (Madrid)", lat: 40.416775, lon: -3.70379 },
+                      { name: "科尔多瓦 (Córdoba)", lat: 37.888175, lon: -4.779383 },
+                      { name: "塞维利亚 (Seville)", lat: 37.392529, lon: -5.994072 },
+                      { name: "Cadiz", lat: 36.52706, lon: -6.288596 },
+                      { name: "Tarifa", lat: 36.014005, lon: -5.607469 },
+                      { name: "马拉加 (Málaga)", lat: 36.721273, lon: -4.421398 },
+                      { name: "格拉纳达 (Granada)", lat: 37.178055, lon: -3.600833 },
+                      { name: "阿尔梅里亚 (Almería)", lat: 36.838139, lon: -2.459740 },
+                      { name: "穆尔西亚 (Murcia)", lat: 37.992239, lon: -1.130654 },
+                      { name: "阿里坎特 (Alicante)", lat: 38.34517, lon: -0.48149 },
+                      { name: "德尼亚 (Denia)", lat: 38.840778, lon: 0.105318 },
+                      { name: "瓦伦西亚 (Valencia)", lat: 39.47391, lon: -0.37966 },
+                      { name: "塔拉戈纳 (Tarragona)", lat: 41.118882, lon: 1.24449 },
+                      // France
+                      { name: "佩皮尼昂 (Perpignan)", lat: 42.688659, lon: 2.894833 }
+                    ];
+
+                    // 初始化地图对象
+                    const map = L.map('map');
+
+                    // 添加地图瓦片图层
+                    //（OpenStreetMap）
+                    // L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+                    //   attribution: '© OpenStreetMap',
+                    // }).addTo(map);
+                    // CartoDB Positron（白色简约风，适合数据展示）✅ 推荐
+                    L.tileLayer('https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png', {
+                      attribution: '© OpenStreetMap CartoDB',
+                      subdomains: 'abcd',
+                      maxZoom: 19
+                    }).addTo(map);
+
+                    // 添加标记并绑定弹窗
+                    function getColor(name) {
+                      if (name.includes("德国") || name.includes("慕尼黑")) return "#3498db";
+                      if (name.includes("西班牙") || name.includes("塞维利亚")) return "#f39c12";
+                      if (name.includes("挪威") || name.includes("奥斯陆")) return "#2ecc71";
+                      return "#3498db";
+                    }
+                    // places.forEach(place => {
+                    //   L.marker([place.lat, place.lon])
+                    //     .addTo(map)
+                    //     .bindPopup(`<b>${place.name}</b>`);
+                    // });
+                    places.forEach(p => {
+                      L.circleMarker([p.lat, p.lon], {
+                        radius: 3,              // 标记大小（建议3~6）
+                        fillColor: "#e67e22",   // 填充颜色（红色）
+                        color: "#d35400",       // 边框颜色（深红）
+                        weight: 1,
+                        opacity: 1,
+                        fillOpacity: 0.8
+                      }).addTo(map)
+                        .bindPopup(p.name);
+                    });
+
+                    // 旅行线路（顺序连接）
+                    // const route = places.map(p => [p.lat, p.lon]);
+                    // L.polyline(route, { color: '#7f8c8d', weight: 2, opacity: 0.7 }).addTo(map);
+
+                    // 自动缩放到所有地点
+                    const bounds = L.latLngBounds(places.map(p => [p.lat, p.lon]));
+                    map.fitBounds(bounds, {
+                      padding: [1, 1],
+                      maxZoom: 7
+                    });
+                  </script>
+                </td>
+              </tr>
+            </tbody>
+          </table> -->
 
           <!-- Photo Wall -->
           <table
@@ -1204,7 +1331,7 @@
                 updatetxt();
                 updateProgressBar()
                 // 每隔一段时间切换图片
-                setInterval(displayNextImage, 2500); // 这里的2000表示每隔2秒切换一次图片，根据需要进行调整
+                setInterval(displayNextImage, 3000); // 这里的2000表示每隔2秒切换一次图片，根据需要进行调整
               </script>
             </tbody>
           </table>
@@ -1219,11 +1346,12 @@
                     src='//cdn.clustrmaps.com/map_v2.js?cl=ffffff&w=a&t=m&d=1KuXT48NxIBmKSXjyUzYy_YAGtPcXa_BqNnvPDG_rHc&cmn=ff5353&cmo=ff9f00'></script>
 
                   <!-- <script type="text/javascript" id="clstr_globe"
-                      src="//clustrmaps.com/globe.js?d=1KuXT48NxIBmKSXjyUzYy_YAGtPcXa_BqNnvPDG_rHc"></script> -->
+                                src="//clustrmaps.com/globe.js?d=1KuXT48NxIBmKSXjyUzYy_YAGtPcXa_BqNnvPDG_rHc"></script> -->
                 </td>
               </tr>
             </tbody>
           </table>
+
           <!-- footer -->
           <table
             style="width:100%;border:0px;border-spacing:0px;border-collapse:separate;margin-right:auto;margin-left:auto;">
@@ -1232,7 +1360,7 @@
                 <td style="padding:0px">
                   <br>
                   <p style="text-align:right;font-size:small;color: rgba(48, 48, 48, 0.50);">
-                    Updated Feb. 2025
+                    Updated Jun. 2025
                     <br>
                     Page template from <a href="https://github.com/junmeng6025/website" target="_blank">Jon Barron.</a>
                   </p>
