@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="zh">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Jun 的旅行地图</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" crossorigin="" />
+    <style>
+        html,
+        body,
+        #map {
+            height: 100%;
+            margin: 0;
+            padding: 0;
+        }
+
+        .play-button {
+            position: absolute;
+            top: 10px;
+            left: 10px;
+            background: white;
+            padding: 6px 12px;
+            border-radius: 6px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+            cursor: pointer;
+            font-weight: bold;
+        }
+        .cta {
+            display: flex;
+            gap: 15px;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 40px;
+            }
+        .big-cta {
+            font-size: 16px;
+            font-weight: 600;
+            letter-spacing: 0px;
+            height: 40px;
+            width: 110px;
+            background-color: #2B3A55;
+            color: white;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: all 0.2s;
+            box-shadow: 0 15px 10px #2b3a5541;
+            }
+
+            .cta-2 {
+            background-color: transparent;
+            color: #2B3A55;
+            border: 2px solid #2B3A55;
+            }
+    </style>
+</head>
+
+<body>
+
+    <div id="map"></div>
+    <!-- <div class="play-button" onclick="playRoute()">Play</div> -->
+    <table
+    style="width:100%;height:auto;border:0px;border-spacing:0px;border-collapse:separate;margin-right:auto;margin-left:auto;">
+    <tbody>
+        <tr>
+        <td style="padding:10px;padding-top:30px;width:100%;vertical-align:middle">
+            <heading>Travel map</heading>
+        </td>
+        <td style="padding:10px;padding-top:30px;width:100%;vertical-align:middle;text-align:right">
+            <a href="https://glaze-branch-3d9.notion.site/e1de185635a14f318cfd585324cd86c1?v=5657ff8beae64f00815192e8046525c9"
+            target="_blank">
+            <button class="big-cta cta-2">
+                <i class="fa fa-map"></i> 自由如风
+            </button>
+            </a>
+        </td>
+        </tr>
+    </tbody>
+    </table>
+
+    <table
+        style="width:80%;max-width:640px;padding:10px;border:0px;border-spacing:0px;border-collapse:separate;margin-right:auto;margin-left:auto;margin-bottom:auto">
+        <tbody>
+            <div id="map"></div>
+            <tr>
+            <td style="padding:20px;width:100%;vertical-align:middle;">
+                <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+                <script>
+                // 获取颜色函数
+                function getColorByYear(year) {
+                    const colors = {
+                        2023: "#3498db", // 蓝
+                        2024: "#2ecc71", // 绿
+                        2025: "#e67e22"  // 橘
+                    };
+                    return colors[year] || "#7f8c8d";
+                }
+
+                // 你去过的地方坐标列表
+                const places = [
+                    { name: "慕尼黑 (Munich)", lat: 48.1351, lon: 11.5820, year: 2023 },
+                    { name: "康斯坦茨", lat: 47.6603, lon: 9.1758, year: 2023 },
+                    { name: "卡尔斯鲁厄", lat: 49.0069, lon: 8.4037, year: 2023 },
+                    { name: "特里尔", lat: 49.7499, lon: 6.6371, year: 2023 },
+                    { name: "列日", lat: 50.6326, lon: 5.5797, year: 2023 },
+                    { name: "布鲁塞尔", lat: 50.8503, lon: 4.3517, year: 2023 },
+                    { name: "安特卫普", lat: 51.2194, lon: 4.4025, year: 2023 },
+                    { name: "鹿特丹", lat: 51.9225, lon: 4.4792, year: 2023 },
+                    { name: "阿姆斯特丹", lat: 52.3676, lon: 4.9041, year: 2023 },
+                    { name: "乌特勒支", lat: 52.0907, lon: 5.1214, year: 2023 },
+                    { name: "埃因霍温", lat: 51.4416, lon: 5.4697, year: 2023 },
+                    { name: "格罗宁根", lat: 53.2194, lon: 6.5665, year: 2023 },
+                    { name: "汉诺威", lat: 52.3759, lon: 9.7320, year: 2023 },
+                    { name: "汉堡", lat: 53.5511, lon: 9.9937, year: 2023 },
+                    { name: "Flensburg", lat: 54.7930, lon: 9.4469, year: 2023 },
+                    { name: "埃斯比约", lat: 55.4765, lon: 8.4594, year: 2023 },
+                    { name: "Viborg", lat: 56.4522, lon: 9.4020, year: 2023 },
+                    { name: "欧登赛", lat: 55.4038, lon: 10.4024, year: 2023 },
+                    { name: "哥本哈根", lat: 55.6761, lon: 12.5683, year: 2023 },
+                    { name: "马尔默", lat: 55.6049, lon: 13.0038, year: 2023 },
+                    { name: "延雪平", lat: 57.7826, lon: 14.1618, year: 2023 },
+                    { name: "斯德哥尔摩", lat: 59.3293, lon: 18.0686, year: 2023 },
+                    // Norway
+                    { name: "特罗姆瑟 (Tromsø)", lat: 69.6492, lon: 18.9553, year: 2024 },
+                    { name: "Å i Lofoten", lat: 67.8756, lon: 12.9813, year: 2024 },
+                    { name: "雷讷 (Reine)", lat: 67.9333, lon: 13.0893, year: 2024 },
+                    { name: "斯沃尔维尔", lat: 68.2333, lon: 14.5667, year: 2024 },
+                    { name: "Narvik", lat: 68.4385, lon: 17.4272, year: 2024 },
+                    { name: "Innhavet", lat: 67.4651, lon: 15.5498, year: 2024 },
+                    { name: "博德 (Bodø)", lat: 67.2827, lon: 14.3751, year: 2024 },
+                    { name: "龙南 (Rognan)", lat: 67.0953, lon: 15.3878, year: 2024 },
+                    { name: "摩城 (Mo i Rana)", lat: 66.3128, lon: 14.1428, year: 2024 },
+                    { name: "特隆赫姆 (Trondheim)", lat: 63.4305, lon: 10.3951, year: 2024 },
+                    { name: "奥勒松 (Ålesund)", lat: 62.4724, lon: 6.3101, year: 2024 },
+                    { name: "卑尔根 (Bergen)", lat: 60.3930, lon: 5.3244, year: 2024 },
+                    { name: "斯塔万格 (Stavanger)", lat: 58.9700, lon: 5.7330, year: 2024 },
+                    { name: "克里斯蒂安桑 (Kristiansand)", lat: 58.1467, lon: 7.9956, year: 2024 },
+                    { name: "奥斯陆 (Oslo)", lat: 59.9139, lon: 10.7522, year: 2024 },
+                    { name: "哥德堡 (Gøthenburg)", lat: 57.7089, lon: 11.9746, year: 2024 },
+                    { name: "基尔 (Kiel)", lat: 54.3233, lon: 10.1228, year: 2024 },
+                    { name: "布伦瑞克 (Braunschweig)", lat: 52.2689, lon: 10.5268, year: 2024 },
+                    { name: "德累斯顿 (Dresden)", lat: 51.0504, lon: 13.7373, year: 2024 },
+                    { name: "慕尼黑 (Munich)", lat: 48.1351, lon: 11.5820, year: 2024 },
+                    // Spain
+                    { name: "巴塞罗那 (Barcelona)", lat: 41.390205, lon: 2.154007, year: 2025 },
+                    { name: "Lleida", lat: 41.617592, lon: 0.620015, year: 2025 },
+                    { name: "萨拉戈萨 (Zaragoza)", lat: 41.65606, lon: -0.87734, year: 2025 },
+                    { name: "马德里 (Madrid)", lat: 40.416775, lon: -3.70379, year: 2025 },
+                    { name: "科尔多瓦 (Córdoba)", lat: 37.888175, lon: -4.779383, year: 2025 },
+                    { name: "塞维利亚 (Seville)", lat: 37.392529, lon: -5.994072, year: 2025 },
+                    { name: "卡迪兹 (Cádiz)", lat: 36.52706, lon: -6.288596, year: 2025 },
+                    { name: "塔里法 (Tarifa)", lat: 36.014005, lon: -5.607469, year: 2025 },
+                    { name: "马拉加 (Málaga)", lat: 36.721273, lon: -4.421398, year: 2025 },
+                    { name: "格拉纳达 (Granada)", lat: 37.178055, lon: -3.600833, year: 2025 },
+                    { name: "阿尔梅里亚 (Almería)", lat: 36.838139, lon: -2.459740, year: 2025 },
+                    { name: "穆尔西亚 (Murcia)", lat: 37.992239, lon: -1.130654, year: 2025 },
+                    { name: "阿里坎特 (Alicante)", lat: 38.34517, lon: -0.48149, year: 2025 },
+                    { name: "德尼亚 (Denia)", lat: 38.840778, lon: 0.105318, year: 2025 },
+                    { name: "瓦伦西亚 (Valencia)", lat: 39.47391, lon: -0.37966, year: 2025 },
+                    { name: "塔拉戈纳 (Tarragona)", lat: 41.118882, lon: 1.24449, year: 2025 },
+                    { name: "巴塞罗那 (Barcelona)", lat: 41.390205, lon: 2.154007, year: 2025 },
+                    // France
+                    { name: "佩皮尼昂 (Perpignan)", lat: 42.688659, lon: 2.894833, year: 2025 },
+                    { name: "蒙彼利埃", lat: 43.6111, lon: 3.8767, year: 2025 },
+                    { name: "里昂", lat: 45.7640, lon: 4.8357, year: 2025 },
+                    { name: "贝桑松", lat: 47.2378, lon: 6.0241, year: 2025 },
+                    { name: "弗莱堡", lat: 47.9990, lon: 7.8421, year: 2025 },
+                    { name: "卡尔斯鲁厄", lat: 49.0069, lon: 8.4037, year: 2025 },
+                    { name: "斯图加特", lat: 48.7758, lon: 9.1829, year: 2025 },
+                    { name: "慕尼黑 (Munich)", lat: 48.1351, lon: 11.5820, year: 2025 },
+                ];
+
+                // 初始化地图对象
+                const map = L.map('map');
+
+                // 添加地图瓦片图层
+                //（OpenStreetMap）
+                // L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+                //   attribution: '© OpenStreetMap',
+                // }).addTo(map);
+                // CartoDB Positron（白色简约风，适合数据展示）✅ 推荐
+                L.tileLayer('https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png', {
+                    attribution: '© OpenStreetMap CartoDB',
+                    subdomains: 'abcd',
+                    maxZoom: 19
+                }).addTo(map);
+
+                
+                // places.forEach(place => {
+                //   L.marker([place.lat, place.lon])
+                //     .addTo(map)
+                //     .bindPopup(`<b>${place.name}</b>`);
+                // });
+                places.forEach(p => {
+                    L.circleMarker([p.lat, p.lon], {
+                    radius: 4,              // 标记大小（建议3~6）
+                    fillColor: getColorByYear(p.year),   // 填充颜色（红色）
+                    color: "#333",       // 边框颜色（深红）
+                    weight: 1,
+                    opacity: 1,
+                    fillOpacity: 0.8
+                    }).addTo(map)
+                    .bindPopup(p.name);
+                });
+
+                // 分年份存储轨迹
+                const groups = {};
+                places.forEach(p => {
+                    if (!groups[p.year]) groups[p.year] = [];
+                    groups[p.year].push([p.lat, p.lon]);
+                });
+
+
+                // 添加静态 polyline
+                Object.keys(groups).forEach(year => {
+                    L.polyline(groups[year], {
+                        color: getColorByYear(parseInt(year)),
+                        weight: 2,
+                        opacity: 0.5,
+                        // dashArray: "4,4"
+                    }).addTo(map);
+                });
+
+                // 旅行线路（顺序连接）
+                // const route = places.map(p => [p.lat, p.lon]);
+                // L.polyline(route, { color: '#7f8c8d', weight: 2, opacity: 0.7 }).addTo(map);
+
+                // 自动缩放到所有地点
+                const bounds = L.latLngBounds(places.map(p => [p.lat, p.lon]));
+                map.fitBounds(bounds, {
+                    padding: [1, 1],
+                    maxZoom: 7
+                });
+                </script>
+            </td>
+            </tr>
+        </tbody>
+        </table>
+</body>
+
+</html>
