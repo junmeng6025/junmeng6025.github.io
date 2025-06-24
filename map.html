@@ -26,13 +26,59 @@
             cursor: pointer;
             font-weight: bold;
         }
+        .cta {
+            display: flex;
+            gap: 15px;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 40px;
+            }
+        .big-cta {
+            font-size: 16px;
+            font-weight: 600;
+            letter-spacing: 0px;
+            height: 40px;
+            width: 110px;
+            background-color: #2B3A55;
+            color: white;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: all 0.2s;
+            box-shadow: 0 15px 10px #2b3a5541;
+            }
+
+            .cta-2 {
+            background-color: transparent;
+            color: #2B3A55;
+            border: 2px solid #2B3A55;
+            }
     </style>
 </head>
 
 <body>
 
     <div id="map"></div>
-    <div class="play-button" onclick="playRoute()">▶ 播放旅程</div>
+    <div class="play-button" onclick="playRoute()">Play</div>
+    <table
+            style="width:100%;height:auto;border:0px;border-spacing:0px;border-collapse:separate;margin-right:auto;margin-left:auto;">
+            <tbody>
+              <tr>
+                <td style="padding:10px;padding-top:30px;width:100%;vertical-align:middle">
+                  <heading>Travel map</heading>
+                </td>
+                <td style="padding:10px;padding-top:30px;width:100%;vertical-align:middle;text-align:right">
+                  <a href="https://glaze-branch-3d9.notion.site/e1de185635a14f318cfd585324cd86c1?v=5657ff8beae64f00815192e8046525c9"
+                    target="_blank">
+                    <button class="big-cta cta-2">
+                      <i class="fa fa-map"></i> 自由如风
+                    </button>
+                  </a>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+
+        
 
     <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" crossorigin=""></script>
     <script>
@@ -179,7 +225,7 @@
             // }).addTo(map).bindPopup(`<b>${p.name}</b><br><img src="${p.image}" width="160">`);
             marker.openPopup();
             index++;
-            setTimeout(showNext, 1); // 每1500ms一个
+            setTimeout(showNext, 5); // 每1500ms一个
         }
     </script>
 </body>
