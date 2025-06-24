@@ -61,7 +61,7 @@
     <!-- <div class="play-button" onclick="playRoute()">Play</div> -->
     <table
     style="width:100%;height:auto;border:0px;border-spacing:0px;border-collapse:separate;margin-right:auto;margin-left:auto;">
-    <tbody>
+    <!-- <tbody>
         <tr>
         <td style="padding:10px;padding-top:30px;width:100%;vertical-align:middle">
             <heading>Travel map</heading>
@@ -75,7 +75,7 @@
             </a>
         </td>
         </tr>
-    </tbody>
+    </tbody> -->
     </table>
 
     <table
@@ -89,12 +89,16 @@
                 // 获取颜色函数
                 function getColorByYear(year) {
                     const colors = {
-                        2023: "#3498db", // 蓝
-                        2024: "#2ecc71", // 绿
-                        2025: "#e67e22",  // 橘
-                        1: "#f08080",  // 青
+                        2023: "#2ecc71", // 绿-E03West
+                        2024: "#3498db", // 蓝-E03North
+                        2025: "#e67e22",  // 橘-E03South
+                        1: "#ea6a54",  // 浅红-毕业旅行
+                        2: "#a3d977",  // 黄绿-2023复活节
+                        3: "#87ceeb", // 天蓝-2023秋季
+                        4: "#7f8c8d", // #灰 工作通勤
+                        5: "#e74c3c", // 短途旅行
                     };
-                    return colors[year] || "#7f8c8d";
+                    return colors[year] || "#e74c3c"; // grey: "#7f8c8d"
                 }
 
                 // 你去过的地方坐标列表
@@ -176,7 +180,8 @@
                     { name: "科莫", lat: 45.8081, lon: 9.0852, year: 1 },
                     { name: "米兰", lat: 45.4642, lon: 9.1900, year: 1 },
                     { name: "热那亚", lat: 44.4056, lon: 8.9463, year: 1 },
-                    { name: "Imperia", lat: 43.8897, lon: 8.0395, year: 1 },
+                    { name: "萨窝那", lat: 44.3090, lon: 8.4772, year: 1 },
+                    { name: "Imperia", lat: 43.8897, lon: 8.0395, year: 1 },                   
                     { name: "摩纳哥", lat: 43.7384, lon: 7.4246, year: 1 },
                     { name: "尼斯", lat: 43.7102, lon: 7.2620, year: 1 },
                     { name: "Antibes", lat: 43.5804, lon: 7.1251, year: 1 },
@@ -187,6 +192,43 @@
                     { name: "采尔马特", lat: 46.0207, lon: 7.7491, year: 1 },
                     { name: "苏黎世", lat: 47.3769, lon: 8.5417, year: 1 },
                     { name: "斯图加特", lat: 48.7758, lon: 9.1829, year: 1 },
+                    { name: "慕尼黑", lat: 48.1351, lon: 11.5820, year: 1 },
+                    //
+                    { name: "斯图加特", lat: 48.7758, lon: 9.1829, year: 3 },
+                    { name: "Kempten", lat: 47.7267, lon: 10.3139, year: 3 },
+                    { name: "Immenstadt", lat: 47.5612, lon: 10.2146, year: 3 },
+                    { name: "因斯布鲁克", lat: 47.2692, lon: 11.4041, year: 3 },
+                    { name: "萨尔茨堡", lat: 47.8095, lon: 13.0550, year: 3 },
+                    { name: "哈尔施塔特", lat: 47.5613, lon: 13.6481, year: 3 },
+                    { name: "圣沃尔夫冈", lat: 47.7396, lon: 13.4510, year: 3 },
+                    { name: "慕尼黑", lat: 48.1351, lon: 11.5820, year: 3 },
+                    //
+                    { name: "斯图加特", lat: 48.7758, lon: 9.1829, year: 2 },
+                    { name: "巴登巴登", lat: 48.7606, lon: 8.2398, year: 2 },
+                    { name: "斯特拉斯堡", lat: 48.5734, lon: 7.7521, year: 2 },
+                    { name: "埃皮纳勒", lat: 48.1742, lon: 6.4497, year: 2 },
+                    { name: "巴黎", lat: 48.8566, lon: 2.3522, year: 2 },
+                    //
+                    { name: "伍帕塔尔", lat: 51.2562, lon: 7.1508, year: "" },
+                    { name: "科隆", lat: 50.9375, lon: 6.9603, year: "" },
+                    { name: "法兰克福", lat: 50.1109, lon: 8.6821, year: "" },
+                    { name: "伦敦", lat: 51.5074, lon: -0.1278, year: "" },
+                    { name: "维也纳", lat: 48.2082, lon: 16.3738, year: "" },
+                    { name: "柏林", lat: 52.5200, lon: 13.4050, year: "" },
+                    { name: "Regensburg", lat: 49.0134, lon: 12.1016, year: "" },
+                    { name: "纽伦堡", lat: 49.4521, lon: 11.0767, year: "" },
+                    { name: "Passau", lat: 48.5740, lon: 13.4660, year: "" },
+                    { name: "Garmisch Partenkirchen", lat: 47.4910, lon: 11.0953, year: "" },
+                    { name: "Ingolstadt", lat: 48.7668, lon: 11.4255, year: "" },
+                    { name: "腓特烈港", lat: 47.6561, lon: 9.4803, year: "" },
+                    { name: "Zell am See", lat: 47.3253, lon: 12.7995, year: "" },
+                    //
+                    { name: "慕尼黑", lat: 48.1351, lon: 11.5820, year: 4 },
+                    { name: "纽伦堡", lat: 49.4521, lon: 11.0767, year: 4 },
+                    { name: "维尔茨堡", lat: 49.7913, lon: 9.9534, year: 4 },
+                    { name: "Raunheim", lat: 49.9833, lon: 8.4333, year: 4 },
+                    { name: "Metzingen", lat: 48.5844, lon: 9.3126, year: 4 },
+                    { name: "康斯坦茨", lat: 47.6603, lon: 9.1758, year: 4 },
                 ];
 
                 // 初始化地图对象
@@ -214,7 +256,7 @@
                     L.circleMarker([p.lat, p.lon], {
                     radius: 4,              // 标记大小（建议3~6）
                     fillColor: getColorByYear(p.year),   // 填充颜色（红色）
-                    color: "#333",       // 边框颜色（深红）
+                    color: "#333",
                     weight: 1,
                     opacity: 1,
                     fillOpacity: 0.8
@@ -232,6 +274,7 @@
 
                 // 添加静态 polyline
                 Object.keys(groups).forEach(year => {
+                    if (!year) return; // year为空字符串、0、null、undefined都会跳过                                      
                     L.polyline(groups[year], {
                         color: getColorByYear(parseInt(year)),
                         weight: 2,
