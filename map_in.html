@@ -7,12 +7,55 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" crossorigin="" />
     <style>
-        html,
-        body,
-        #map {
+        html, 
+        body {
             height: 100%;
             margin: 0;
-            padding: 0;
+        }
+
+        /* #map {
+            height: 80%;
+            width: 80%;
+            position: relative;
+            z-index: 1;
+
+            margin: auto;
+            top: 0;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            position: absolute;
+
+            border-radius: 20px;
+            overflow: hidden; 
+
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+            border: 2px solid #ccc;
+        } */
+        #map {
+            height: 80%;
+            width: 30%;
+            margin: auto;
+            top: 100px;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            padding: auto;
+            position: relative;
+            
+            border-radius: 20px; 
+            overflow: hidden; 
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+            border: 2px solid #ccc;
+        }
+
+        .map-legend {
+            background-color: rgba(255, 255, 255, 0.9);
+            padding: 10px 14px;
+            border-radius: 12px;
+            box-shadow: 0 2px 6px rgba(0,0,0,0.15);
+            font-size: 14px;
+            line-height: 1.4;
         }
 
         .play-button {
@@ -56,34 +99,11 @@
 </head>
 
 <body>
-
-    <div id="map"></div>
-    <!-- <div class="play-button" onclick="playRoute()">Play</div> -->
-    <table
-    style="width:100%;height:auto;border:0px;border-spacing:0px;border-collapse:separate;margin-right:auto;margin-left:auto;">
-    <!-- <tbody>
-        <tr>
-        <td style="padding:10px;padding-top:30px;width:100%;vertical-align:middle">
-            <heading>Travel map</heading>
-        </td>
-        <td style="padding:10px;padding-top:30px;width:100%;vertical-align:middle;text-align:right">
-            <a href="https://glaze-branch-3d9.notion.site/e1de185635a14f318cfd585324cd86c1?v=5657ff8beae64f00815192e8046525c9"
-            target="_blank">
-            <button class="big-cta cta-2">
-                <i class="fa fa-map"></i> 自由如风
-            </button>
-            </a>
-        </td>
-        </tr>
-    </tbody> -->
-    </table>
-
-    <table
-        style="width:80%;max-width:640px;padding:10px;border:0px;border-spacing:0px;border-collapse:separate;margin-right:auto;margin-left:auto;margin-bottom:auto">
+    <table style="width:80%;max-width:640px;padding:10px;border:0px;border-spacing:0px;border-collapse:separate;margin-right:auto;margin-left:auto;margin-bottom:auto">
         <tbody>
-            <div id="map"></div>
+            <div id="map">
             <tr>
-            <td style="padding:20px;width:100%;vertical-align:middle;">
+            <td style="padding:20px;width:100%;vertical-align:middle; margin:auto; position:absolute">
                 <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
                 <script>
                 // 获取颜色函数
@@ -100,6 +120,20 @@
                     };
                     return colors[year] || "#e74c3c"; // grey: "#7f8c8d"
                 }
+
+                function getYearLabel(year) {
+                    const labels = {
+                        2023: "2023 - E03西线",
+                        2024: "2024 - E03北线",
+                        2025: "2025 - E03南线",
+                        1: "1 - 毕业旅行",
+                        2: "2 - 2023复活节",
+                        3: "3 - 2023秋季",
+                        4: "4 - 通勤",
+                        5: "5 - 短途旅行",
+                    };
+                    return labels[year] || year;
+                    }
 
                 // 你去过的地方坐标列表
                 const places = [
@@ -236,13 +270,45 @@
                 ];
 
                 // 初始化地图对象
-                const map = L.map('map');
+                const map = L.map("map")
+
+                // 创建图例控件
+                const legendControl = L.control({ position: "topright" });
+
+                legendControl.onAdd = function (map) {
+                const div = L.DomUtil.create("div", "map-legend");
+                div.innerHTML = "<b>Legend</b><br>";
+
+                const years = [2023, 2024, 2025, 1, 2, 3, 4, 5];
+                years.forEach(year => {
+                    const color = getColorByYear(year);
+                    const label = getYearLabel(year);
+                    div.innerHTML += `
+                    <div style="display: flex; align-items: center; margin: 4px 0;">
+                        <div style="
+                        width: 12px;
+                        height: 12px;
+                        background-color: ${color};
+                        margin-right: 8px;
+                        border-radius: 2px;
+                        border: 1px solid #555;"></div>
+                        ${label}
+                    </div>
+                    `;
+                });
+
+                return div;
+                };
+
+                // 添加到地图
+                legendControl.addTo(map);
 
                 // 添加地图瓦片图层
                 //（OpenStreetMap）
                 // L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
                 //   attribution: '© OpenStreetMap',
                 // }).addTo(map);
+
                 // CartoDB Positron（白色简约风，适合数据展示）✅ 推荐
                 L.tileLayer('https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png', {
                     attribution: '© OpenStreetMap CartoDB',
@@ -250,6 +316,12 @@
                     maxZoom: 19
                 }).addTo(map);
 
+                // CartoDB Positron（DARK简约风，适合数据展示）✅ 推荐
+                // L.tileLayer('https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png', {
+                //     attribution: '&copy; OpenStreetMap & CartoDB',
+                //     subdomains: 'abcd',
+                //     maxZoom: 19
+                //     }).addTo(map);
                 
                 // places.forEach(place => {
                 //   L.marker([place.lat, place.lon])
@@ -294,12 +366,13 @@
                 // 自动缩放到所有地点
                 const bounds = L.latLngBounds(places.map(p => [p.lat, p.lon]));
                 map.fitBounds(bounds, {
-                    padding: [1, 1],
+                    padding: [10, 10],
                     maxZoom: 7
                 });
                 </script>
             </td>
             </tr>
+        </div>
         </tbody>
         </table>
 </body>
